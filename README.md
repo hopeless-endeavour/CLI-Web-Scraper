@@ -3,10 +3,10 @@ CLI web scraper for french newspapers
 
 pip install -r requirements.txt
 
-To see CLI options:
+## To see CLI options:
 
 python article-scraper.py -h
 
-Tu run:
+## Tu run:
 
 python article-scraper.py {options}
