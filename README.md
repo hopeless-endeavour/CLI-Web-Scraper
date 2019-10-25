@@ -9,4 +9,4 @@ python article-scraper.py -h
 
 Tu run:
 
-python article-scraper.py <options>
+python article-scraper.py {options}
