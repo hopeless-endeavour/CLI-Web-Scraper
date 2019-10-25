@@ -1,5 +1,5 @@
 # CLI-Web-Scraper
-CLI web scraper for french newspapers
+CLI web scraper for french articles
 
 ### Setup 
 pip install -r requirements.txt
