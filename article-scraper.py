@@ -131,7 +131,7 @@ def save_links(lists, filename):
         f.close()
 
 
-def main():
+def cli_init():
     # options
     ap = argparse.ArgumentParser(prog='scraper', description='French article web scraper.')
     ap.add_argument('-t', '--topic', help="choose a topic to scrape for",
@@ -142,8 +142,8 @@ def main():
     # ap.add_argument('-dp', '--displayprev', help='display preview of articles')
     ap.add_argument('-k', '--keyword', nargs='*', help='keyword to search for on domain search page')
     ap.add_argument('-d', '--domain', default='https://relevantideas.weebly.com/',
-                    choices=['relevantideas', 'francetvinfo', 'lemonde', 'lefigaro'],
-                    help='domain to scrape')
+                    choices=['francetvinfo', 'lemonde', 'lefigaro'],
+                    help='domain to scrape (default = relevantideas.weebly.com)')
     # domains to add if bothered: https://www.lesechos.fr, https://www.lexpress.fr, https://www.humanite.fr/,
     # https://www.liberation.fr/, https://www.lindependant.fr/,
     # https://www.monde-diplomatique.fr/, https://www.20minutes.fr/
@@ -151,6 +151,11 @@ def main():
 
     args = ap.parse_args()
 
+    return args
+
+
+def main():
+    args = cli_init()
     topic = args.topic
     ofile = args.ofile
     number = args.number
