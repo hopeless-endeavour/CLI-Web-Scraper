@@ -5,7 +5,7 @@ CLI web scraper for french articles
 pip install -r requirements.txt
 
 ### To see CLI options:
-python article-scraper.py -h
+python3 article-scraper.py -h
 
 ### Tu run:
-python article-scraper.py {options}
+python3 article-scraper.py {options}
