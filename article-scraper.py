@@ -53,10 +53,6 @@ def rideas_scrape(content):
     """Scrapes contents of revelantideas topic url to find linked articles and perform chosen option."""
 
     soup = BeautifulSoup(content, 'html.parser')
-    if soup is not None:
-        print('Not empty')
-    else:
-        print('Empty')
     elems = soup.find_all('a', class_='wsite-button wsite-button-small wsite-button-normal')
     links = []
     for i in range(len(elems)):
