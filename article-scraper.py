@@ -57,7 +57,7 @@ def rideas_scrape(content):
     links = []
     for i in range(len(elems)):
         link = elems[i].get("href")
-        if "http" not in link:  # doesn't add false href's
+        if "http" not in link:  # doesn't add invalid href's
             pass
         else:
             links.append(link)
@@ -74,7 +74,7 @@ def frinfo_scrape(content):
     links = []
     for i in range(len(elems)):
         link = elems[i].get("href")
-        if "http" not in link:  # doesn't add false href's
+        if "http" not in link:  # doesn't add invalid href's
             link = "https://www.francetvinfo.fr" + elems[i].get("href")
         links.append(link)
 
@@ -105,7 +105,7 @@ def figaro_scrape(content):
     links = []
     for i in range(len(elems)):
         link = elems[i].get("href")
-        if "http" not in link:  # doesn't add false href's
+        if "http" not in link:  # doesn't add invalid href's
             pass
         else:
             links.append(link)
@@ -131,7 +131,7 @@ def save_links(lists, filename):
         f.close()
 
 
-def cli_init():
+def cli_args():
     # options
     ap = argparse.ArgumentParser(prog="scraper", description="French article web scraper.")
     ap.add_argument("-t", "--topic", help="choose topic from relevantideas to search for",
@@ -144,10 +144,10 @@ def cli_init():
     ap.add_argument("-d", "--domain", default="https://relevantideas.weebly.com/",
                     choices=["francetvinfo", "lemonde", "lefigaro"],
                     help="domain to scrape (default = relevantideas.weebly.com)")
+    ap.add_argument("-s", "--searchpage", help="open search page of domain", action="store_true")
     # domains to add if bothered: https://www.lesechos.fr, https://www.lexpress.fr, https://www.humanite.fr/,
     # https://www.liberation.fr/, https://www.lindependant.fr/,
     # https://www.monde-diplomatique.fr/, https://www.20minutes.fr/
-    ap.add_argument("-s", "--searchpage", help="open search page of domain", action="store_true")
 
     args = ap.parse_args()
 
@@ -155,7 +155,7 @@ def cli_init():
 
 
 def main():
-    args = cli_init()
+    args = cli_args()
     topic = args.topic
     ofile = args.ofile
     number = args.number
