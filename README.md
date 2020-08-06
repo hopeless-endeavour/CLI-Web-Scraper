@@ -7,5 +7,5 @@ pip install -r requirements.txt
 ### To see CLI options:
 python3 article-scraper.py -h
 
-### Tu run:
+### To run:
 python3 article-scraper.py {options}
